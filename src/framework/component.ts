@@ -1,4 +1,5 @@
 import { renderChanges } from './render-changes';
+import { getRenderer } from './renderers';
 import { PROPERTIES_SYMBOL } from './types';
 
 export function renderComponent<T>(C: any): T {
@@ -11,6 +12,8 @@ export function renderComponent<T>(C: any): T {
 
     // set up interceptors that render changes
     for (let i = 0; i < c[PROPERTIES_SYMBOL].length; i += 2) {
+        getRenderer().render(c[PROPERTIES_SYMBOL][i], c[PROPERTIES_SYMBOL][i + 1]);
+
         Object.defineProperty(c, c[PROPERTIES_SYMBOL][i], {
             set(v) {
                 this[PROPERTIES_SYMBOL][i + 1] = v;

@@ -4,6 +4,6 @@ import { Component } from '../framework/decorators';
     properties: ['name', 'age']
 })
 export class MyComponent {
-    name: string = 'Some';
+    name: string = 'Nick';
     age: number = 15;
 }

@@ -69,3 +69,7 @@ export function setRenderer(type: string) {
         }
     }
 }
+
+export function getRenderer() {
+    return renderer;
+}
