@@ -1,14 +1,13 @@
 {
-    "compilerOptions": {
-        "target": "es2015",
-        "module": "commonjs",
-        "sourceMap": true,
-        "skipLibCheck": true,
-        "noImplicitAny": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
-    },
-    "includes": [
-        "src/**/*.ts"
-    ]
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "includes": [
+    "src/**/*.ts"
+  ]
 }
