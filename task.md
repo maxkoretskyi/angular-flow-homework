@@ -1,30 +1,13 @@
-Components input/output communication & ExpressionChangedAfterItHasBeenCheckedError
----------------------
+Moving a view between two containers inside child components
+------------------------------------------------------------
 
-Steps
----------------------
+* Implement the `ToDoListComponent` with one view container in the template.
+The component should have the `addItem` method that takes a view
+and adds it to a view container. And the `removeItem` method that detaches
+the view from a container and returns it.
 
-* Implement ToDoList component that contains one child componentn ToDoItem component.
-Here is a template of the component:
-```html
-<h1>To-do list</h1>
-<todo-item [item]="todoItem" (completed)="updateCompletedStatus($event)"></todo-item>
-```
-* Implement ToDoItem component that takes a to-do item as an input. It shows
-title and status of the to-do item that it takes. It also contains a checkbox
-to switch status of the to-do item.
-
-Here is a template of the component:
-```html
-<h4>Title: {{item.title}}</h4>
-<h4>Status: {{item.completed}}</h4>
-<label>
-    Completed
-    <input id="checkBox" type="checkbox" (change)="complete($event)">
-</label>
-```
-* ToDoItem component also has `completed` event that is listened to by
-the ToDoList component. Once it receives the notification, it udpates the status
-of the to-do item.
-
-* Add styles with borders and padding according to the task.jpg
+* Implement the `AppComponent` with the template `<span>I am a task</span>` and
+two wrapper divs for the `to-do-list` component. The `AppComponent` should create
+an embedded view from the template. It also should should query
+two child ToDoList components and using their API add/remove this view when
+a user clicks `Move` button. See `task.gif` for the demo.

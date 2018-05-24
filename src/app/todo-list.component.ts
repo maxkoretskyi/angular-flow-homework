@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
     selector: 'to-do-list',
     template: `
-        <h1>To-do list</h1>
-        <todo-item [item]="todoItem" (completed)="updateCompletedStatus($event)"></todo-item>
-    `
+        <ng-container #vc></ng-container>
+    `,
 })
 export class TodoListComponent {
+    @ViewChild('vc', {read: ViewContainerRef}) vc: ViewContainerRef;
+
+    addItem(v) {
+        this.vc.insert(v);
+    }
+
+    removeItem(index) {
+        return this.vc.detach(index);
+    }
 }
