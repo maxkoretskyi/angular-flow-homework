@@ -1,13 +1,23 @@
 Moving a view between two containers inside child components
 ------------------------------------------------------------
 
-* Implement the `ToDoListComponent` with one view container in the template.
-The component should have the `addItem` method that takes a view
-and adds it to a view container. And the `removeItem` method that detaches
-the view from a container and returns it.
+* Take the `moving-view-solution` as a base for this task
 
-* Implement the `AppComponent` with the template `<span>I am a task</span>` and
-two wrapper divs for the `to-do-list` component. The `AppComponent` should create
-an embedded view from the template. It also should should query
-two child ToDoList components and using their API add/remove this view when
-a user clicks `Move` button. See `task.gif` for the demo.
+* Instead of quering `ToDoListComponent` using its class, query it using
+an abstract class `ContainerComponent` and the `useExisting` strategy.
+
+* Implement `Http` class with one method `get` that takes a url and returns
+a query result. It injects the `HttpBackend` intstance into a constructor
+and delegates the query to it.
+
+* Declare an abstract class `HttpBackend` with the interface
+`abstract get(url: string): Promise<any>;`. Implement two concrete implementations
+of the class `HttpFetchBackend` and `HttpXhrBackend`. Each should simply return
+a string identifying a service in the `get` method. Put each service in a separate
+module.
+
+* Inject `Http` service into the `AppComponent` component and query data from the
+constructor. Log the result.
+
+* Import `HttpFetchModule` and `XhrFetchModule` into the main `AppModule`.
+Observe the log result. Now change the order of imports. Observer the log result.
