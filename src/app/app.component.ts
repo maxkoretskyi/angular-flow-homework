@@ -1,15 +1,12 @@
-
 import {
     AfterViewInit,
     Component,
     EmbeddedViewRef,
-    OnInit,
     QueryList,
     TemplateRef,
     ViewChild,
     ViewChildren
 } from '@angular/core';
-import { ContainerComponent } from './container-component';
 import { Http } from './http';
 import { TodoListComponent } from './todo-list.component';
 
@@ -32,7 +29,7 @@ import { TodoListComponent } from './todo-list.component';
     styles: ['.top, .bottom {border: 1px solid black; padding: 10px; margin: 10px 0; height: 30px; width: 500px; }']
 })
 export class AppComponent implements AfterViewInit {
-    @ViewChildren(ContainerComponent) comps: QueryList<TodoListComponent>;
+    @ViewChildren(TodoListComponent) comps: QueryList<TodoListComponent>;
     @ViewChild('tpl') tpl: TemplateRef<null>;
     embeddedView: EmbeddedViewRef<null>;
     isTop: boolean = true;

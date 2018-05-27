@@ -1,8 +1,6 @@
 Moving a view between two containers inside child components
 ------------------------------------------------------------
 
-* Take the `moving-view-solution` as a base for this task
-
 * Instead of quering `ToDoListComponent` using its class, query it using
 an abstract class `ContainerComponent` and the `useExisting` strategy.
 
