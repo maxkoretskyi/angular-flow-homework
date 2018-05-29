@@ -1,4 +1,8 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { json } from './json';
+import { xhr } from './xhr';
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+xhr('https://jsonplaceholder.typicode.com/posts/1').pipe(
+    json
+).subscribe((r) => {
+    console.log(r);
+});
